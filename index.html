@@ -6,12 +6,8 @@
     
     <!-- SEO & Social Sharing -->
     <title>Alberto Corti — Research</title>
-    <meta name="description" content="PhD Research by Alberto Corti on the perceived potential of new venture ideas, investigating the friction between human intuition and AI evaluation.">
-    <meta property="og:title" content="Alberto Corti — Research">
-    <meta property="og:description" content="Investigating the friction between human intuition and computational evaluation (AI) in early-stage financing.">
-    <meta property="og:type" content="website">
-    <meta name="author" content="Alberto Corti">
-
+    <meta name="description" content="PhD Research by Alberto Corti on the perceived potential of new venture ideas.">
+    
     <!-- Styles & Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css" rel="stylesheet">
@@ -21,6 +17,7 @@
         body { 
             font-family: 'Inter', sans-serif; 
             font-feature-settings: "ss01", "ss04"; /* Sharp stylistic sets */
+            background-color: #ffffff;
         }
         ::selection {
             background-color: #000;
@@ -28,65 +25,79 @@
         }
         .smooth-scroll { scroll-behavior: smooth; }
         
-        /* Schematic Line Logic */
-        .schematic-line-v {
-            width: 1px;
-            background-color: #000;
-            margin: 0 auto;
-        }
-        .schematic-line-h {
-            height: 1px;
-            background-color: #000;
-            width: 100%;
-        }
-        
         /* Custom utilities */
         .meta-label {
             @apply text-xs font-mono uppercase tracking-widest text-neutral-500 mb-4 block;
         }
-        .section-padding {
-            @apply p-10 md:p-20 lg:p-24;
+        
+        /* POSTER BLOCK LOGIC
+           - Adjusted to a normal but distinct separation (approx 100px - 160px)
+        */
+        .poster-block {
+            @apply border border-black mx-auto max-w-[1600px] bg-white w-full mb-24 md:mb-40;
+        }
+
+        /* Layout Grid Logic */
+        .grid-layout {
+            @apply grid grid-cols-1 md:grid-cols-12;
+        }
+        
+        .sidebar {
+            @apply col-span-1 md:col-span-4 p-8 md:p-12 py-16 md:py-24 border-b md:border-b-0 border-black/10 md:border-r border-black flex flex-col justify-start;
+        }
+        .content {
+            @apply col-span-1 md:col-span-8 p-8 md:p-12 lg:p-16 py-16 md:py-24 flex flex-col justify-center;
+        }
+        
+        /* The "Gutter" */
+        .content-gutter {
+            @apply md:pl-24 lg:pl-32;
+        }
+
+        /* Typography Scale */
+        .h-mega {
+            @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95];
+        }
+        .h-section {
+            @apply text-3xl md:text-5xl font-bold tracking-tight leading-none;
+        }
+        /* Gap Utility - Not needed anymore, handled by margin */
+        .section-gap {
+            @apply hidden; 
         }
     </style>
 </head>
-<body class="bg-white text-black antialiased smooth-scroll selection:bg-black selection:text-white border-x border-black max-w-[1920px] mx-auto">
+<body class="text-black antialiased smooth-scroll px-4 md:px-8 bg-white">
 
     <!-- Navigation -->
-    <nav class="w-full border-b border-black sticky top-0 bg-white/95 backdrop-blur-sm z-50">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-            <!-- Brand -->
-            <div class="col-span-1 md:col-span-4 px-10 py-6 md:px-20 lg:px-24 border-b md:border-b-0 border-black/10 md:border-r border-black flex items-center">
-                <a href="#" class="group block">
-                    <span class="text-sm font-bold uppercase tracking-widest group-hover:opacity-50 transition-opacity">Alberto Corti</span>
-                    <span class="block text-xs font-normal text-neutral-500 mt-1">PhD Research / KTH</span>
-                </a>
-            </div>
-            <!-- Menu -->
-            <div class="col-span-1 md:col-span-8 flex items-center px-10 py-6 md:px-20 lg:px-24 justify-start md:justify-end gap-10 md:gap-16 overflow-x-auto scrollbar-hide">
-                <a href="#gap" class="text-xs md:text-sm font-medium uppercase tracking-wider hover:text-neutral-500 transition-colors whitespace-nowrap">The Gap</a>
-                <a href="#framework" class="text-xs md:text-sm font-medium uppercase tracking-wider hover:text-neutral-500 transition-colors whitespace-nowrap">Framework</a>
-                <a href="#roadmap" class="text-xs md:text-sm font-medium uppercase tracking-wider hover:text-neutral-500 transition-colors whitespace-nowrap">Roadmap</a>
-                <a href="#context" class="text-xs md:text-sm font-medium uppercase tracking-wider hover:text-neutral-500 transition-colors whitespace-nowrap">Context</a>
-                <a href="#contact" class="text-xs md:text-sm font-bold uppercase tracking-wider hover:text-neutral-500 transition-colors whitespace-nowrap">Contact</a>
-            </div>
+    <!-- Added distinct margin-bottom to separate nav from the first block -->
+    <nav class="sticky top-4 z-50 max-w-[1600px] mx-auto mb-16 md:mb-24">
+        <div class="bg-white/95 backdrop-blur-md border border-black px-6 md:px-12 h-16 md:h-20 flex justify-between items-center shadow-sm">
+            <a href="#" class="group block">
+                <span class="text-sm font-bold uppercase tracking-widest group-hover:opacity-50 transition-opacity">Alberto Corti</span>
+                <span class="hidden md:inline-block ml-4 text-xs font-normal text-neutral-500">PhD Research / KTH</span>
+            </a>
+            <span class="md:hidden text-xs font-normal text-neutral-500">PhD Research</span>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="w-full border-b border-black">
-        <div class="grid grid-cols-1 md:grid-cols-12 min-h-[80vh]">
-            <!-- Sidebar / Meta data -->
-            <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-black md:border-r flex flex-col justify-between bg-neutral-50">
+    <!-- BLOCK 1: HERO -->
+    <div class="poster-block">
+        <div class="grid grid-cols-1 md:grid-cols-12 min-h-[60vh]">
+            <!-- Sidebar -->
+            <div class="col-span-1 md:col-span-4 p-8 md:p-12 py-16 border-b md:border-b-0 border-black md:border-r flex flex-col justify-between bg-neutral-50">
                 <div class="hidden md:block">
-                    <span class="meta-label">Project Status</span>
-                    <div class="inline-block px-3 py-1.5 border border-black text-[10px] font-bold uppercase tracking-widest bg-white">
-                        In Progress
+                    <span class="meta-label">Status</span>
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-2 h-2 bg-black rounded-full animate-pulse"></div>
+                        <span class="text-xs font-bold uppercase tracking-widest">In Progress (Study 1/4)</span>
                     </div>
-                    <span class="block mt-2 text-[10px] font-mono text-neutral-400 uppercase tracking-wider">December 2025</span>
+                    <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">Dec 2025</span>
                 </div>
-                <div class="space-y-12 mt-12 md:mt-0">
+                
+                <div class="space-y-8 mt-12 md:mt-0">
                     <div>
-                        <span class="meta-label">Research Institution</span>
+                        <span class="meta-label">Institution</span>
                         <p class="text-sm font-medium leading-relaxed">KTH Royal Institute of<br>Technology</p>
                     </div>
                     <div>
@@ -101,199 +112,213 @@
             </div>
 
             <!-- Main Title -->
-            <div class="col-span-1 md:col-span-8 section-padding flex flex-col justify-center">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-12 md:mb-20">
-                    THE PERCEIVED<br>
-                    POTENTIAL OF<br>
-                    NEW VENTURE<br>
-                    IDEAS.
-                </h1>
-                <p class="text-lg md:text-xl font-light leading-relaxed max-w-2xl text-neutral-800">
-                    An investigation into the friction between human intuition and computational evaluation (AI) in early-stage financing.
-                </p>
+            <div class="col-span-1 md:col-span-8 p-8 md:p-12 lg:p-16 py-16 flex flex-col justify-end">
+                <div class="content-gutter">
+                    <h1 class="h-mega mb-12">
+                        THE PERCEIVED<br>
+                        POTENTIAL OF<br>
+                        NEW VENTURE<br>
+                        IDEAS.
+                    </h1>
+                    <p class="p-body max-w-xl border-l border-black pl-6">
+                        An investigation into the friction between human intuition and computational evaluation (AI) in early-stage financing.
+                    </p>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- 01. The Gap -->
-    <section id="gap" class="w-full border-b border-black">
-        <div class="grid grid-cols-1 md:grid-cols-12">
-            <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-black/10 md:border-r border-black">
-                <h2 class="text-3xl font-bold tracking-tight mb-4">01. The Gap</h2>
-                <p class="meta-label">Problem Statement</p>
+    <!-- BLOCK 2: THE GAP -->
+    <section id="gap" class="poster-block">
+        <div class="grid-layout border-b-0">
+            <div class="sidebar border-b-0">
+                <br>
+                <br>
+                <span class="meta-label">01 — Problem Statement</span>
+                <h2 class="h-section mt-2">The Gap</h2>
             </div>
-            <div class="col-span-1 md:col-span-8 section-padding">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+            <div class="content">
+                <div class="content-gutter grid grid-cols-1 gap-16 md:gap-24 max-w-4xl">
                     <article>
-                        <i data-lucide="users" class="w-8 h-8 mb-8 stroke-1 text-neutral-800"></i>
-                        <h3 class="text-sm font-bold uppercase tracking-widest mb-6">Human Bias</h3>
-                        <p class="text-base text-neutral-600 leading-loose">
+                        <h3 class="text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-4">
+                            <span class="w-8 h-px bg-black"></span> Human Bias
+                        </h3>
+                        <p class="p-body pl-12">
                             Venture screening is currently an art form, relying heavily on intuition. It is prone to cognitive biases, scales poorly, and lacks consistency in defining "potential."
                         </p>
                     </article>
                     <article>
-                        <i data-lucide="cpu" class="w-8 h-8 mb-8 stroke-1 text-neutral-800"></i>
-                        <h3 class="text-sm font-bold uppercase tracking-widest mb-6">Algorithmic Promise</h3>
-                        <p class="text-base text-neutral-600 leading-loose">
+                        <h3 class="text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-4">
+                            <span class="w-8 h-px bg-black"></span> Algorithmic Promise
+                        </h3>
+                        <p class="p-body pl-12">
                             Large Language Models offer scale. The research questions if algorithms can be recalibrated to mimic expert logic to provide an objective "second opinion."
                         </p>
+                        <br>
+                        <br>
                     </article>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 02. The Framework -->
-    <section id="framework" class="w-full border-b border-black bg-neutral-50">
-        <div class="grid grid-cols-1 md:grid-cols-12">
-            <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-black/10 md:border-r border-black">
-                <h2 class="text-3xl font-bold tracking-tight mb-4">02. Framework</h2>
-                <p class="meta-label mb-10">Conceptual Model</p>
-                <p class="text-sm leading-loose text-neutral-600 max-w-xs">
-                    How the four studies interact to build the hybrid evaluation engine.
-                </p>
-            </div>
-            <div class="col-span-1 md:col-span-8 section-padding flex flex-col justify-center items-center">
-                
-                <!-- Diagram Container -->
-                <div class="w-full max-w-lg my-8">
-                    
-                    <!-- Top: Input -->
-                    <div class="flex justify-center mb-8">
-                        <div class="border border-black bg-white px-8 py-3 text-center w-48">
-                            <span class="text-[10px] font-mono text-neutral-400 block mb-1">INPUT</span>
-                            <span class="font-bold text-xs uppercase tracking-wider">Venture Ideas</span>
-                        </div>
-                    </div>
-
-                    <!-- Connectors Split -->
-                    <div class="flex justify-center h-10 relative">
-                        <div class="schematic-line-v h-full"></div>
-                        <div class="absolute bottom-0 w-1/2 h-[1px] bg-black"></div>
-                    </div>
-
-                    <!-- Middle: Dual Process -->
-                    <div class="grid grid-cols-2 gap-16 mb-8">
-                        <!-- Human Side -->
-                        <div class="flex flex-col items-center">
-                            <div class="schematic-line-v h-8"></div>
-                            <div class="border border-black bg-white p-5 w-full text-center hover:bg-black hover:text-white transition-colors cursor-default">
-                                <span class="text-[10px] font-mono opacity-50 block mb-1">STUDY I</span>
-                                <span class="font-bold text-xs uppercase tracking-wider">Human<br>Intuition</span>
-                            </div>
-                        </div>
-                        <!-- AI Side -->
-                        <div class="flex flex-col items-center">
-                            <div class="schematic-line-v h-8"></div>
-                            <div class="border border-black bg-white p-5 w-full text-center hover:bg-black hover:text-white transition-colors cursor-default">
-                                <span class="text-[10px] font-mono opacity-50 block mb-1">STUDY II</span>
-                                <span class="font-bold text-xs uppercase tracking-wider">LLM<br>Recalibration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connectors Merge -->
-                    <div class="flex justify-center h-10 relative">
-                        <div class="absolute top-0 w-1/2 h-[1px] bg-black"></div>
-                        <div class="schematic-line-v h-full"></div>
-                    </div>
-
-                    <!-- Context Filter -->
-                    <div class="flex justify-center mb-8">
-                        <div class="border border-dashed border-black bg-transparent px-8 py-4 text-center w-64 hover:bg-black hover:text-white transition-colors cursor-default">
-                            <span class="text-[10px] font-mono opacity-50 block mb-1">STUDY III</span>
-                            <span class="font-bold text-xs uppercase tracking-wider">Domain Logic Alignment</span>
-                        </div>
-                    </div>
-
-                    <!-- Connector -->
-                    <div class="flex justify-center h-10">
-                        <div class="schematic-line-v h-full"></div>
-                    </div>
-
-                    <!-- Output -->
-                    <div class="flex justify-center">
-                        <div class="border border-black bg-black text-white px-8 py-4 text-center w-64 shadow-[6px_6px_0px_0px_rgba(0,0,0,0.15)]">
-                            <span class="text-[10px] font-mono opacity-60 block mb-1">STUDY IV</span>
-                            <span class="font-bold text-xs uppercase tracking-widest">Hybrid Framework</span>
-                        </div>
-                    </div>
-
+    <!-- BLOCK 3: FRAMEWORK -->
+    <section id="framework" class="poster-block bg-neutral-50">
+        <div class="grid-layout border-b-0">
+            <div class="sidebar border-b-0">
+                <br>
+                <br>
+                <span class="meta-label">02 — Conceptual Model</span>
+                <h2 class="h-section mt-2 mb-6">Framework</h2>
+                <!-- Forced Single Line -->
+                <div class="w-full overflow-hidden">
+                    <p class="p-body text-sm text-neutral-500 whitespace-nowrap">
+                        Schematic representation of the Hybrid Evaluation Engine.
+                    </p>
                 </div>
+            </div>
+            <div class="content">
+                <div class="content-gutter w-full overflow-x-auto pb-4 md:pb-0">
+                    <div class="flex items-center min-w-max">
+                        
+                        <!-- 1. Input -->
+                        <div class="flex items-center">
+                            <div class="border border-black bg-white px-3 py-2 text-center w-24 hover:shadow-md transition-shadow cursor-default">
+                                <span class="text-[8px] font-mono uppercase block text-neutral-400 mb-0.5">Input</span>
+                                <span class="font-bold text-[10px] uppercase tracking-wider">Ideas</span>
+                            </div>
+                            <div class="w-6 h-px bg-black"></div>
+                        </div>
 
+                        <!-- 2. Dual Process -->
+                        <div class="flex items-center">
+                            <div class="flex flex-col justify-between h-20 relative">
+                                <div class="border-l border-t border-black w-3 h-1/2 absolute top-0 left-0"></div>
+                                <div class="border-l border-b border-black w-3 h-1/2 absolute bottom-0 left-0"></div>
+                            </div>
+                            
+                            <div class="flex flex-col gap-4 ml-3">
+                                <div class="border border-black bg-white px-4 py-2 text-center w-28 hover:bg-black hover:text-white transition-colors cursor-default">
+                                    <span class="text-[8px] font-mono uppercase block mb-0.5 opacity-60">Study I</span>
+                                    <span class="font-bold text-[10px] leading-none block">Human</span>
+                                </div>
+                                <div class="border border-black bg-white px-4 py-2 text-center w-28 hover:bg-black hover:text-white transition-colors cursor-default">
+                                    <span class="text-[8px] font-mono uppercase block mb-0.5 opacity-60">Study II</span>
+                                    <span class="font-bold text-[10px] leading-none block">AI / LLM</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col justify-between h-20 relative ml-3">
+                                <div class="border-r border-t border-black w-3 h-1/2 absolute top-0 right-0"></div>
+                                <div class="border-r border-b border-black w-3 h-1/2 absolute bottom-0 right-0"></div>
+                            </div>
+                        </div>
+
+                        <!-- Line -->
+                        <div class="w-6 h-px bg-black"></div>
+
+                        <!-- 3. Context -->
+                        <div class="border border-dashed border-black bg-transparent px-4 py-2 text-center w-32 hover:bg-white transition-colors cursor-default">
+                             <span class="text-[8px] font-mono uppercase block mb-0.5 text-neutral-500">Study III</span>
+                             <span class="font-bold text-[10px] uppercase tracking-wider">Context</span>
+                        </div>
+
+                        <!-- Line -->
+                        <div class="w-6 h-px bg-black"></div>
+
+                        <!-- 4. Output -->
+                        <div class="border-2 border-black bg-black text-white px-4 py-2 text-center w-36 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
+                            <span class="text-[8px] font-mono uppercase block mb-0.5 opacity-60">Study IV</span>
+                            <span class="font-bold text-[10px] uppercase tracking-widest">Hybrid</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+                                    <br>
+                            <br>
     </section>
 
-    <!-- 03. Roadmap -->
-    <section id="roadmap" class="w-full border-b border-black">
-        <div class="grid grid-cols-1 md:grid-cols-12">
-            <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-black/10 md:border-r border-black">
-                <h2 class="text-3xl font-bold tracking-tight mb-4">03. Roadmap</h2>
-                <p class="meta-label mb-10">Methodology & Studies</p>
-                <p class="text-sm leading-loose text-neutral-600 max-w-xs">
-                    Four distinct studies designed to construct a Hybrid Evaluation Framework.
-                </p>
+    <!-- BLOCK 4: ROADMAP -->
+    <section id="roadmap" class="poster-block">
+        <div class="grid-layout border-b-0">
+            <div class="sidebar border-b-0">
+                                            <br>
+                            <br>
+                <span class="meta-label">03 — Methodology</span>
+                <h2 class="h-section mt-2">Roadmap</h2>
             </div>
             
             <div class="col-span-1 md:col-span-8">
-                <!-- Study 1 -->
-                <div class="group border-b border-black/10 hover:bg-black hover:text-white transition-colors duration-300">
-                    <div class="section-padding grid grid-cols-1 md:grid-cols-3 gap-10">
-                        <div class="pt-1">
-                            <span class="text-xs font-mono opacity-50 block mb-4">STUDY I</span>
-                            <span class="inline-block px-2 py-1 border border-current text-[10px] font-bold uppercase tracking-widest">In Progress</span>
+                <div class="flex flex-col">
+                    <!-- Study 1 -->
+                    <div class="group border-b border-black/10 hover:bg-neutral-50 transition-colors duration-300">
+                        <div class="p-8 md:p-12 lg:p-16 py-16 content-gutter">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                <div class="md:col-span-3 pt-1">
+                                    <span class="text-xs font-mono text-neutral-400 block mb-3">STUDY I</span>
+                                    <span class="inline-block px-2 py-1 bg-black text-white text-[10px] font-bold uppercase tracking-widest">In Progress</span>
+                                </div>
+                                <div class="md:col-span-9 max-w-2xl">
+                                    <h3 class="text-2xl font-bold mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-black/30">Policy Delphi Study</h3>
+                                    <p class="p-body text-neutral-600">
+                                        Establishing a consensus definition of "idea potential." We engage experts to deconstruct criteria used in high-stakes financing decisions.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-span-2">
-                            <h3 class="text-lg font-bold mb-4">Policy Delphi Study</h3>
-                            <p class="text-sm opacity-80 leading-loose max-w-xl">
-                                Establishing a consensus definition of "idea potential." We engage experts to deconstruct criteria used in high-stakes financing decisions.
-                            </p>
+                                                    <br>
+                            <br>
+                    </div>
+
+                    <!-- Study 2 -->
+                    <div class="group border-b border-black/10 hover:bg-neutral-50 transition-colors duration-300">
+                        <div class="p-8 md:p-12 lg:p-16 py-16 content-gutter">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                <div class="md:col-span-3 pt-1">
+                                    <span class="text-xs font-mono text-neutral-400 block mb-3">STUDY II</span>
+                                </div>
+                                <div class="md:col-span-9 max-w-2xl">
+                                    <h3 class="text-2xl font-bold mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-black/30">LLM Recalibration</h3>
+                                    <p class="p-body text-neutral-600">
+                                        Training language models to follow instructions derived from expert consensus. Benchmarking LLM performance against human VCs.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Study 2 -->
-                <div class="group border-b border-black/10 hover:bg-black hover:text-white transition-colors duration-300">
-                    <div class="section-padding grid grid-cols-1 md:grid-cols-3 gap-10">
-                        <div class="pt-1">
-                            <span class="text-xs font-mono opacity-50 block mb-4">STUDY II</span>
-                        </div>
-                        <div class="col-span-2">
-                            <h3 class="text-lg font-bold mb-4">LLM Recalibration</h3>
-                            <p class="text-sm opacity-80 leading-loose max-w-xl">
-                                Training language models to follow instructions derived from expert consensus. Benchmarking LLM performance against human VCs.
-                            </p>
+                    <!-- Study 3 -->
+                    <div class="group border-b border-black/10 hover:bg-neutral-50 transition-colors duration-300">
+                        <div class="p-8 md:p-12 lg:p-16 py-16 content-gutter">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                <div class="md:col-span-3 pt-1">
+                                    <span class="text-xs font-mono text-neutral-400 block mb-3">STUDY III</span>
+                                </div>
+                                <div class="md:col-span-9 max-w-2xl">
+                                    <h3 class="text-2xl font-bold mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-black/30">Domain-Logic Alignment</h3>
+                                    <p class="p-body text-neutral-600">
+                                        Investigating context. Comparing VC funding, public funding, and arts funding to understand how "potential" shifts across domains.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Study 3 -->
-                <div class="group border-b border-black/10 hover:bg-black hover:text-white transition-colors duration-300">
-                    <div class="section-padding grid grid-cols-1 md:grid-cols-3 gap-10">
-                        <div class="pt-1">
-                            <span class="text-xs font-mono opacity-50 block mb-4">STUDY III</span>
-                        </div>
-                        <div class="col-span-2">
-                            <h3 class="text-lg font-bold mb-4">Domain-Logic Alignment</h3>
-                            <p class="text-sm opacity-80 leading-loose max-w-xl">
-                                Investigating context. Comparing VC funding, public funding, and arts funding to understand how "potential" shifts across domains.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Study 4 -->
-                <div class="group hover:bg-black hover:text-white transition-colors duration-300">
-                    <div class="section-padding grid grid-cols-1 md:grid-cols-3 gap-10">
-                        <div class="pt-1">
-                            <span class="text-xs font-mono opacity-50 block mb-4">STUDY IV</span>
-                        </div>
-                        <div class="col-span-2">
-                            <h3 class="text-lg font-bold mb-4">Hybrid Framework</h3>
-                            <p class="text-sm opacity-80 leading-loose max-w-xl">
-                                Developing a "Human-in-the-loop" system where AI acts as a mediator. This includes a blueprint for the development of a domain-specific SLM for idea evaluation.
-                            </p>
+                    <!-- Study 4 -->
+                    <div class="group hover:bg-neutral-50 transition-colors duration-300">
+                        <div class="p-8 md:p-12 lg:p-16 py-16 content-gutter">
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                                <div class="md:col-span-3 pt-1">
+                                    <span class="text-xs font-mono text-neutral-400 block mb-3">STUDY IV</span>
+                                </div>
+                                <div class="md:col-span-9 max-w-2xl">
+                                    <h3 class="text-2xl font-bold mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-black/30">Hybrid Framework</h3>
+                                    <p class="p-body text-neutral-600">
+                                        Developing a "Human-in-the-loop" system where AI acts as a mediator. This includes a blueprint for the development of a domain-specific SLM for idea evaluation.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -301,77 +326,87 @@
         </div>
     </section>
 
-    <!-- 04. Context -->
-    <section id="context" class="w-full border-b border-black">
-        <div class="grid grid-cols-1 md:grid-cols-12">
-            <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-black/10 md:border-r border-black flex flex-col justify-between">
-                <div>
-                    <h2 class="text-3xl font-bold tracking-tight mb-4">04. Context</h2>
-                    <p class="meta-label">Collaborators</p>
-                </div>
-                <div class="mt-16">
-                    <span class="meta-label">Location</span>
-                    <p class="text-sm font-medium">Stockholm, Sweden</p>
-                </div>
+    <!-- BLOCK 5: CONTEXT -->
+    <section id="context" class="poster-block">
+        <div class="grid-layout border-b-0">
+            <div class="sidebar border-b-0">
+                <span class="meta-label">04 — Collaborators</span>
+                
             </div>
-            
-            <div class="col-span-1 md:col-span-8 section-padding">
-                <div class="max-w-2xl">
-                    <p class="text-base text-neutral-800 leading-loose mb-16">
+            <br>
+            <div class="content">
+                <div class="content-gutter max-w-3xl">
+                    <p class="p-body mb-10">
                         I collaborate with institutional bodies and experts possessing a deep understanding of financing potential. While Study I (Consensus on Potential) relies on a selected expert panel, this research aims to expand cognitive diversity by including organizations with a proven track record in idea evaluation.
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                        <div class="border-b border-black/10 py-5 flex justify-between items-center">
+                    <div class="space-y-2">
+                        <!-- List Item -->
+                        <div class="py-4 border-b border-black flex justify-between items-center group cursor-default">
                             <span class="text-sm font-medium">Private Investors</span>
+                            <span class="text-xs font-mono text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Perspective: Market Validation & ROI</span>
                         </div>
-                        <div class="border-b border-black/10 py-5 flex justify-between items-center">
+                        <!-- List Item -->
+                        <div class="py-4 border-b border-black flex justify-between items-center group cursor-default">
                             <span class="text-sm font-medium">Innovation Policymakers</span>
+                            <span class="text-xs font-mono text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Perspective: Ecosystem & Societal Impact</span>
                         </div>
-                        <div class="border-b border-black/10 py-5 flex justify-between items-center">
+                        <!-- List Item -->
+                        <div class="py-4 border-b border-black flex justify-between items-center group cursor-default">
                             <span class="text-sm font-medium">Arts & Cultural Funding</span>
+                            <span class="text-xs font-mono text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Perspective: Aesthetic & Cultural Value</span>
                         </div>
-                        <div class="border-b border-black/10 py-5 flex justify-between items-center">
+                        <!-- List Item -->
+                        <div class="py-4 border-b border-black flex justify-between items-center group cursor-default">
                             <span class="text-sm font-medium">Public Grant Evaluators</span>
+                            <span class="text-xs font-mono text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Perspective: Feasibility & Public Utility</span>
                         </div>
-                        <div class="border-b border-black/10 py-5 flex justify-between items-center">
+                        <!-- List Item -->
+                        <div class="py-4 border-b border-black flex justify-between items-center group cursor-default">
                             <span class="text-sm font-medium">Corporate R&D Directors</span>
+                            <span class="text-xs font-mono text-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-wider">Perspective: Strategic Fit & Viability</span>
                         </div>
                     </div>
 
-                    <div class="pt-8 border-t border-black/10">
-                        <p class="text-base text-neutral-800 leading-relaxed">
-                            If your organisation or you are interested in participating in the study, please reach out. All organisations that are part of this study will get access to the research results.
+                    <div class="mt-20">
+                        <p class="text-sm font-medium leading-relaxed max-w-lg border-l-2 border-black pl-4">
+                            If your organisation is interested in participating in the study, please reach out. Participating organisations will receive access to the research results.
                         </p>
+                    <br>
+                    <br>    
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 05. Contact -->
-    <section id="contact" class="w-full bg-black text-white">
-        <div class="grid grid-cols-1 md:grid-cols-12">
-             <div class="col-span-1 md:col-span-4 section-padding border-b md:border-b-0 border-white/20 md:border-r border-white/20">
-                <h2 class="text-3xl font-bold tracking-tight mb-4">05. Contact</h2>
-                <p class="text-xs font-mono uppercase tracking-widest text-neutral-400">Get in touch</p>
+    <!-- BLOCK 6: CONTACT -->
+    <section id="contact" class="poster-block bg-black text-white border-black mb-0">
+        <div class="grid grid-cols-1 md:grid-cols-12 min-h-0">
+            <div class="col-span-1 md:col-span-4 p-8 md:p-12 py-16 border-b md:border-b-0 border-white/20 md:border-r border-white/20 flex flex-col justify-between">
+                <div>
+                    <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 mb-2 block">05 — Get in touch</span>
+                    <h2 class="h-section text-white">Contact</h2>
+                </div>
             </div>
-            <div class="col-span-1 md:col-span-8 section-padding flex flex-col justify-center">
-                 <a href="mailto:acorti@kth.se" class="text-xl md:text-2xl font-mono border-b border-white/0 hover:border-white transition-all w-fit pb-1">
-                    acorti@kth.se
-                </a>
+            <div class="col-span-1 md:col-span-8 p-8 md:p-12 lg:p-16 py-16 flex flex-col justify-start items-start">
+                 <div class="content-gutter pt-8">
+                     <a href="mailto:acorti@kth.se" class="text-xl md:text-xl font-mono hover:text-neutral-400 transition-colors border-b border-white/50 hover:border-white pb-1">
+                        acorti@kth.se
+                    </a>
+                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-black section-padding bg-white text-black">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] md:text-xs font-mono uppercase tracking-wider text-neutral-500 gap-8">
-            <div>
-                © 2025 Alberto Corti
+    <footer class="poster-block border-t-0 p-8 md:p-12 bg-white text-black mt-0">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 gap-8">
+            <div class="max-w-md">
+                <span class="block mb-2 text-black font-bold">Supervisors</span>
+                T. Brown, R. Rahm, T. Arctaedius
             </div>
-            <div class="flex flex-col md:flex-row gap-2 md:gap-10">
-                <span>Supervisors: T. Brown, R. Rahm, T. Arctaedius</span>
-                <span>KTH Royal Institute of Technology</span>
+            <div class="text-right">
+                © 2025 Alberto Corti / KTH
             </div>
         </div>
     </footer>
